@@ -215,3 +215,46 @@ document.querySelectorAll('.stat-item, .goal-card').forEach((item, index) => {
     item.style.animationDelay = `${index * 0.2}s`;
 });
 
+// Obsługa loadera
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        // Usuń loader ze strony po zakończeniu animacji
+        loader.addEventListener('transitionend', () => {
+            loader.remove();
+        });
+    }, 1000); // Loader będzie widoczny przez minimum 1 sekundę
+});
+
+// Obsługa przycisku powrotu do góry
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+// Pokaż/ukryj przycisk w zależności od pozycji scrollowania
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) { // Pokaż przycisk po przewinięciu 300px
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+
+// Przewijanie do góry po kliknięciu
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Obsługa klawiatury dla dostępności
+scrollToTopBtn.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+});
+
+
