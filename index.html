@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Nawigacja -->
+    <nav class="navbar">
+        <div class="logo">Tymoteusz Skrobol</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Strona główna</a></li>
+            <li><a href="#about">O mnie</a></li>
+            <li><a href="#projects">Projekty</a></li>
+            <li><a href="#social">Social Media</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Sekcja główna -->
+    <section id="home" class="hero">
+        <h1>Witaj, jestem <span>Tymoteusz Skrobol</span></h1>
+        <p>Frontend Developer | Backend Developer | Designer | Creator</p>
+    </section>
+
+    <!-- O mnie -->
+    <section id="about" class="about">
+        <h2>O mnie</h2>
+        <div class="about-content">
+            <div class="about-image-container">
+                <img src="zdjecieTymek.png" alt="Twoje zdjęcie" loading="lazy">
+            </div>
+            <div class="about-text">
+                <p>Jestem uczniem Powiatowego Zespołu Szkół nr 1 w Pszczynie. Uczę się programowania. Uwielbiam tworzyć strony internetowe. Posiadam średnie umiejętności w HTML oraz CSS, oraz początkowe umiejętności w JavaScript</p>
+                <div class="skills">
+                    <h3>Umiejętności:</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CSS3</span>
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="65"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="30"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projekty -->
+    <section id="projects" class="projects">
+        <h2>Moje Projekty</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="projekt1.png" alt="Projekt 1">
+                <h3>Interaktywna strona z opcją dodawania zadań</h3>
+                <p>Aplikacja webowa stworzona przy użyciu HTML, CSS i JavaScript, umożliwiająca użytkownikom zarządzanie listą zadań. Posiada funkcje dodawania, usuwania i oznaczania zadań jako wykonane. Dane są przechowywane lokalnie w przeglądarce użytkownika.</p>
+                <a href="https://zadanie-zawodowe.netlify.app" class="btn" target="_blank" rel="noopener noreferrer">Zobacz więcej</a>
+            </div>
+            <!-- Dodaj więcej kart projektów według potrzeb -->
+        </div>
+    </section>
+    <section id="social" class="social">
+        <h2>Znajdź mnie</h2>
+        <div class="social-links">
+            <a href="https://github.com/SkrobolTymek" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/twój-profil" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://instagram.com/tymek_barszcz_" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sekcja Statystyki -->
+    <section id="stats" class="stats">
+        <h2>Moje Statystyki</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-code"></i>
+                <div class="stat-number" data-target="20000">0</div>
+                <p>Linii Kodu</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-project-diagram"></i>
+                <div class="stat-number" data-target="1">0</div>
+                <p>Ukończony Projekt</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <div class="stat-number" data-target="500">0</div>
+                <p>Godzin Kodowania</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-coffee"></i>
+                <div class="stat-number" data-target="350">0</div>
+                <p>Filiżanek Kawy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Cele -->
+    <section id="goals" class="goals">
+        <h2>Moje Cele na 2024</h2>
+        <div class="goals-grid">
+            <!-- React.js -->
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fab fa-react"></i>
+                </div>
+                <h3>React.js</h3>
+                <p>Opanowanie podstaw React.js i stworzenie pierwszej aplikacji</p>
+                <ul class="goal-details">
+                    <li>Komponenty i Props</li>
+                    <li>Hooks i State Management</li>
+                    <li>React Router</li>
+                    <li>Integracja z API</li>
+                </ul>
+                <div class="goal-progress">
+                    <div class="progress-bar" data-progress="30"></div>
+                    <span class="progress-text">30%</span>
+                </div>
+            </div>
+            
+            <!-- Backend Development -->
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Backend Development</h3>
+                <p>Nauka PHP i MySQL, stworzenie własnego API</p>
+                <ul class="goal-details">
+                    <li>PHP Podstawy i OOP</li>
+                    <li>MySQL i Bazy Danych</li>
+                    <li>REST API</li>
+                    <li>Bezpieczeństwo</li>
+                </ul>
+                <div class="goal-progress">
+                    <div class="progress-bar" data-progress="45"></div>
+                    <span class="progress-text">45%</span>
+                </div>
+            </div>
+            
+            <!-- UI/UX Design -->
+            <div class="goal-card">
+                <div class="goal-icon">
+                    <i class="fab fa-figma"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>Opanowanie projektowania interfejsów użytkownika w Figmie</p>
+                <ul class="goal-details">
+                    <li>Podstawy projektowania UI/UX</li>
+                    <li>Prototypowanie</li>
+                    <li>Design System</li>
+                    <li>Komponenty i Auto-layout</li>
+                </ul>
+                <div class="goal-progress">
+                    <div class="progress-bar" data-progress="25"></div>
+                    <span class="progress-text">25%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="faq"></section>
+        <h2>Często Zadawane Pytania</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Jakie technologie preferujesz?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Głównie skupiam się na technologiach frontendowych takich jak HTML, CSS i JavaScript. Obecnie rozwijam się również w kierunku React.js.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Czy podejmujesz się projektów komercyjnych?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Tak, jestem otwarty na projekty komercyjne. Każdy projekt traktuję indywidualnie i dostosowuję się do potrzeb klienta.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Jak długo uczysz się programowania?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Programowania uczę się od początku technikum. Każdego dnia staram się poszerzać swoją wiedzę i umiejętności.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Kontakt -->
+    <section id="contact" class="contact">
+        <h2>Kontakt</h2>
+        <div class="contact-content">
+            <form action="send_email.php" method="POST">
+                <input type="text" name="name" placeholder="Imię" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Wiadomość" required></textarea>
+                <button type="submit" class="btn">Wyślij</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sekcja FAQ -->
+    
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2024 Tymoteusz Skrobol. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    
+    <script src="javascript.js"></script>
+</body>
+</html>
+</html>
