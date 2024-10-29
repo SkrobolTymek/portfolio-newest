@@ -257,4 +257,30 @@ scrollToTopBtn.addEventListener('keypress', (e) => {
     }
 });
 
+// Dodaj efekt parallax dla tła
+window.addEventListener('mousemove', (e) => {
+    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    
+    document.querySelector('.cyber-grid').style.transform = 
+        `perspective(500px) rotateX(60deg) translate(${moveX}px, ${moveY}px)`;
+        
+    document.querySelector('.cyber-particles').style.transform = 
+        `translate(${moveX * 2}px, ${moveY * 2}px)`;
+});
+
+// Optymalizacja wydajności
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.cyber-grid').style.transform = 
+                `perspective(500px) rotateX(60deg) translateY(${scrolled * 0.1}px)`;
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
 
