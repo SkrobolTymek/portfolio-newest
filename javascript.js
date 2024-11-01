@@ -167,8 +167,8 @@ function animateStats() {
     
     stats.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-target'));
-        const duration = 1000; // Zmniejszone z domyślnych 2000ms do 1000ms
-        const increment = target / (duration / 16); // Zwiększone tempo aktualizacji
+        const duration = 400; // Zmniejszone do 400ms
+        const increment = target / (duration / 16); // Większy increment dla szybszej animacji
         let current = 0;
 
         const updateCount = () => {
