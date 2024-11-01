@@ -161,32 +161,44 @@ document.querySelectorAll('.skill-progress').forEach(progress => {
     progress.style.width = '0';
 });
 
-// Animacja liczników w statystykach
+// Animacja liczb w sekcji statystyk
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 1000; // Zmniejszone z domyślnych 2000ms do 1000ms
+        const increment = target / (duration / 16); // Zwiększone tempo aktualizacji
+        let current = 0;
+
+        const updateCount = () => {
+            if (current < target) {
+                current += increment;
+                stat.textContent = Math.round(current);
+                requestAnimationFrame(updateCount);
+            } else {
+                stat.textContent = target;
+            }
+        };
+
+        updateCount();
+    });
+}
+
+// Uruchom animację gdy sekcja jest widoczna
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const numbers = entry.target.querySelectorAll('.stat-number');
-            numbers.forEach(num => {
-                const target = parseInt(num.getAttribute('data-target'));
-                const duration = 2000; // 2 sekundy
-                const increment = target / (duration / 16); // 60fps
-                let current = 0;
-
-                const updateNumber = () => {
-                    current += increment;
-                    if (current < target) {
-                        num.textContent = Math.floor(current);
-                        requestAnimationFrame(updateNumber);
-                    } else {
-                        num.textContent = target;
-                    }
-                };
-
-                updateNumber();
-            });
+            animateStats();
+            statsObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.stats');
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
 
 // Animacja pasków postępu w celach
 const goalsObserver = new IntersectionObserver((entries) => {
