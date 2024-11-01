@@ -2066,3 +2066,260 @@ section {
         transform: translateY(100vh);
     }
 }
+.terminal-portfolio {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.terminal-window {
+    background: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-header {
+    background: #2d2d2d;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 1rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.terminal-title {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.terminal-body {
+    padding: 1rem;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.terminal-output {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-prompt {
+    color: var(--primary-color);
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    outline: none;
+}
+
+.error-message { color: #ff5f56; }
+.success-message { color: #27c93f; }
+.info-message { color: #ffbd2e; }
+
+.terminal-output p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+/* Efekt migającego kursora */
+.terminal-input::after {
+    content: '▋';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+.terminal-portfolio {
+    padding: 5rem 10%;
+    background: var(--secondary-color);
+}
+
+.terminal-portfolio h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.terminal-window {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+    border: 1px solid var(--primary-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal-window:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.3);
+}
+
+.terminal-body {
+    height: 400px;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Stylizacja scrollbara */
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .terminal-portfolio {
+        padding: 3rem 5%;
+    }
+
+    .terminal-body {
+        height: 300px;
+    }
+
+    .terminal-input {
+        font-size: 14px;
+    }
+}
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    flex: 1;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.terminal-prompt {
+    color: var(--primary-color);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.terminal-output p {
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+    white-space: pre-line;
+}
+
+.welcome-message {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.error-message { color: #ff5f56; }
+.success-message { color: #27c93f; }
+.info-message { color: #ffbd2e; }
+
+/* Style dla lepszego formatowania komend */
+.terminal-output pre {
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+/* Styl dla paska postępu w umiejętnościach */
+.skill-bar {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Poprawka dla długich linii tekstu */
+.terminal-output {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Styl dla promptu */
+.terminal-prompt {
+    color: var(--primary-color);
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* Poprawka dla inputu */
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    flex: 1;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Dodatkowe style dla lepszego wyglądu komend */
+.command-output {
+    padding-left: 1rem;
+}
+
+/* Style dla różnych typów wiadomości */
+.error-message { 
+    color: #ff5f56; 
+    font-weight: bold;
+}
+
+.success-message { 
+    color: #27c93f; 
+    font-weight: bold;
+}
+
+.info-message { 
+    color: #ffbd2e; 
+    font-weight: bold;
+}

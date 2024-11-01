@@ -284,3 +284,124 @@ window.addEventListener('scroll', () => {
 });
 
 
+class TerminalPortfolio {
+    constructor() {
+        this.terminal = document.querySelector('.terminal-body');
+        this.input = document.querySelector('.terminal-input');
+        this.output = document.querySelector('.terminal-output');
+        this.commands = {
+            help: this.showHelp.bind(this),
+            about: this.showAbout.bind(this),
+            skills: this.showSkills.bind(this),
+            projects: this.showProjects.bind(this),
+            contact: this.showContact.bind(this),
+            clear: this.clear.bind(this),
+            social: this.showSocial.bind(this)
+        };
+        
+        this.initializeTerminal();
+    }
+
+    initializeTerminal() {
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const command = this.input.value.trim().toLowerCase();
+                this.executeCommand(command);
+                this.input.value = '';
+            }
+        });
+
+        // Automatyczne fokusowanie na input po kliknięciu w terminal
+        this.terminal.addEventListener('click', () => {
+            this.input.focus();
+        });
+    }
+
+    executeCommand(command) {
+        this.addToOutput(`<span class="terminal-prompt">visitor@portfolio:~$</span> ${command}`);
+        
+        if (this.commands[command]) {
+            this.commands[command]();
+        } else if (command !== '') {
+            this.addToOutput(`<span class="error-message">Komenda '${command}' nie została znaleziona. Wpisz 'help' aby zobaczyć dostępne komendy.</span>`);
+        }
+
+        this.terminal.scrollTop = this.terminal.scrollHeight;
+    }
+
+    addToOutput(content) {
+        this.output.innerHTML += `<p>${content}</p>`;
+    }
+
+    showHelp() {
+        const helpText = `
+<span class="info-message">Dostępne komendy:</span>
+
+help     - wyświetla tę pomoc
+about    - informacje o mnie
+skills   - moje umiejętności
+projects - moje projekty
+contact  - dane kontaktowe
+social   - media społecznościowe
+clear    - czyści terminal`;
+        this.addToOutput(helpText);
+    }
+
+    showAbout() {
+        const aboutText = `
+<span class="success-message">O mnie:</span>
+
+Jestem uczniem Powiatowego Zespołu Szkół nr 1 w Pszczynie.
+Pasjonuję się tworzeniem stron internetowych i programowaniem.
+Obecnie rozwijam się w kierunku React.js i technologii frontendowych.`;
+        this.addToOutput(aboutText);
+    }
+
+    showSkills() {
+        const skillsText = `
+<span class="success-message">Moje umiejętności:</span>
+
+HTML5       [██████████] 80%
+CSS3        [████████··] 65%
+JavaScript [████······] 30%
+React.js   [███·······] 25%`;
+        this.addToOutput(skillsText);
+    }
+
+    showProjects() {
+        const projectsText = `
+<span class="success-message">Moje projekty:</span>
+
+1. Portfolio - Interaktywna strona portfolio
+2. Lista zadań - Aplikacja do zarządzania zadaniami
+3. Więcej projektów na moim GitHubie!`;
+        this.addToOutput(projectsText);
+    }
+
+    showContact() {
+        const contactText = `
+<span class="success-message">Kontakt:</span>
+
+Email: twoj@email.com
+Tel: +48 XXX XXX XXX`;
+        this.addToOutput(contactText);
+    }
+
+    showSocial() {
+        const socialText = `
+<span class="success-message">Media społecznościowe:</span>
+
+GitHub:   github.com/SkrobolTymek
+LinkedIn: linkedin.com/in/twojprofil`;
+        this.addToOutput(socialText);
+    }
+
+    clear() {
+        this.output.innerHTML = '';
+    }
+}
+
+// Inicjalizacja terminala
+document.addEventListener('DOMContentLoaded', () => {
+    const terminal = new TerminalPortfolio();
+});
