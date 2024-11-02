@@ -417,3 +417,44 @@ LinkedIn: linkedin.com/in/twojprofil`;
 document.addEventListener('DOMContentLoaded', () => {
     const terminal = new TerminalPortfolio();
 });
+
+// Obsługa formularza kontaktowego
+const form = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Wysyłanie...';
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            // Sukces
+            formStatus.innerHTML = '<div class="success-message">Dziękujemy! Wiadomość została wysłana.</div>';
+            form.reset();
+        } else {
+            throw new Error('Wystąpił błąd podczas wysyłania wiadomości.');
+        }
+    } catch (error) {
+        // Błąd
+        formStatus.innerHTML = '<div class="error-message">Przepraszamy, wystąpił błąd. Spróbuj ponownie później.</div>';
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Wyślij';
+        
+        // Usuń komunikat po 5 sekundach
+        setTimeout(() => {
+            formStatus.innerHTML = '';
+        }, 5000);
+    }
+});

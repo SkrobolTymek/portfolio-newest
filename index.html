@@ -347,11 +347,12 @@
     <section id="contact" class="contact">
         <h2>Kontakt</h2>
         <div class="contact-content">
-            <form action="send_email.php" method="POST">
+            <form id="contactForm" action="https://formspree.io/f/xjkvyagb" method="POST">
                 <input type="text" name="name" placeholder="Imię" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <textarea name="message" placeholder="Wiadomość" required></textarea>
                 <button type="submit" class="btn">Wyślij</button>
+                <div id="formStatus" class="form-status"></div>
             </form>
         </div>
     </section>
@@ -365,6 +366,7 @@
     </footer>
     
     <script src="javascript.js"></script>
+    
 </body>
 </html>
 </html>
